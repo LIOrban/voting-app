@@ -1,0 +1,15 @@
+<facebook-login *ngIf="pollsService.fbButton==='Login with Facebook'"></facebook-login>
+
+<div *ngIf="pollsService.fbButton==='Logout'">
+  <div>
+    <createpoll *ngIf="pollsService.showAddPoll"></createpoll>
+    <button class="btn btn-primary" (click)="this.add()">{{this.pollsService.addPollButton}}</button>
+    <facebook-login class="float-right"></facebook-login>
+  </div>
+  <br>
+  <div>
+    <mypolls *ngIf="!pollsService.showAddPoll"></mypolls>
+  </div>
+</div>
+
+

@@ -1,0 +1,36 @@
+<div id="create-poll">
+    <p>
+        This is CreatePollComponent. It will display on demand inside the dashboard component only for authenticated users.
+    </p>
+    <form *ngIf="!this.submitted" id="create-poll-form">
+        <div class="form-group">
+            <label for="name">Poll Name</label>
+            <input class="form-control" name="name" type="text" placeholder="name" [(ngModel)]="this.name" (blur)="this.enterName()" (keyup.enter)="this.focusNext(optionInput)">
+        </div>
+        <p  class="text-warning" *ngIf="this.nameRequired">Please enter the name</p>
+        <div class="form-group">
+            <label for="option">Add Option</label>
+            <input #optionInput class="form-control" type="text" placeholder="option" [(ngModel)]="this.option" name="option" (keyup.enter)="this.addOption()">
+        </div>
+        <p  class="text-warning" *ngIf="this.optRequired">Please enter at least two options</p>
+        <div class="form-group">           
+        <button class="btn" type="button" id="add-option" (click)="this.addOption()">Add</button>
+        </div>
+        
+        <ul class="list-unstyled" id="options-list">
+            <li *ngFor="let opt of options" class="options-list-items">
+
+                    {{opt}}
+
+                    <button class="btn btn-warning float-right" type="button" id="delete-option" (click)="this.delOption(opt)">Delete</button>
+                    <br><br>
+
+            </li>
+        </ul>
+        <button class="btn btn-success" type="button" (click)="this.onSubmit()">Submit</button>
+    </form>
+    <p *ngIf="this.submitted">
+        You have submitted {{this.name}} with the options: {{this.options}}
+    </p>
+    
+</div>

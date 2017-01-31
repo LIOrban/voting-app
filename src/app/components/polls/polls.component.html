@@ -1,0 +1,11 @@
+<br>
+<p class="lead" (click)="this.selectedId=0;">All polls:</p>
+<hr>
+
+<ul class="list-unstyled" id="all-polls">
+    <li class="" *ngFor="let poll of polls">
+        <p class="lead polls-list" (click)="onSelect(poll);">{{poll["name"]}}</p>
+        <poll *ngIf="poll['_id']==this.selectedId"  [name]="this.name" [options]="this.options" [pid]="this.selectedId"></poll>
+        <hr>
+    </li>
+</ul>

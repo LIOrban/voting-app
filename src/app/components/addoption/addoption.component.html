@@ -1,0 +1,12 @@
+<div *ngIf="!this.added">
+    <form id="add-option-form">
+        <div class="form-group">
+            <label for="option">Add a new option</label>
+            <input class="form-control" name="option" type="text" placeholder="new option" [(ngModel)]="this.newOption" (keyup.enter)="this.addOption()">
+        </div>
+    </form>
+    
+    <p><button class="btn btn-success" type="button" (click)="this.addOption()">Add</button></p> 
+</div>
+
+

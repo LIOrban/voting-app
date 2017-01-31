@@ -1,0 +1,29 @@
+
+<div (click)="okAfterAddOption();">
+ <p class="lead">My polls:</p>
+ <hr>
+ <ul class="list-unstyled">
+    <li class="lead" *ngFor="let mypoll of mypolls">
+        <p class="polls-list row">
+            <span class="col-xs-6 col-sm-6" (click)="okAfterAddOption();onSelect(mypoll);"> {{mypoll.name}} </span>
+            <span class="col-xs-6 col-sm-6 text-right">
+                
+                <button class="btn btn-danger" (click)="deletePoll(mypoll);">Delete</button>
+            </span>
+        </p>
+        
+        
+        <poll *ngIf="mypoll['_id']==this.selectedId" [name]="this.name" [options]="this.options" [pid]="this.selectedId" ></poll>
+
+        <p *ngIf="mypoll['_id']==this.selectedId && mypoll['_id']!==this.toggleAddOption"><button class="btn" (click)="addOption(mypoll);">Add Option</button></p>
+        <addoption *ngIf="mypoll['_id']==this.toggleAddOption" [name]="this.name" [options]="this.options" [pid]="this.selectedId"></addoption>
+        <p *ngIf="mypoll['_id']==this.toggleAddOption && !pollsService.hasAddedNewOption;"><button class="btn" (click)="this.toggleAddOption=false;">Cancel</button></p>
+        <p *ngIf="mypoll['_id']==this.toggleAddOption && pollsService.hasAddedNewOption;">Option "{{pollsService.newOption}}" was added. <button class="btn" (click)="okAfterAddOption();">OK</button></p>
+        <hr>
+    </li>
+ </ul>
+ 
+</div>
+
+<!-- (voteChange)="changeTheVotes($event);"-->
+<!--(mouseout)="okAfterAddOption();" in poll-->

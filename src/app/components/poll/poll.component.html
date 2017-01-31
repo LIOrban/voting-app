@@ -1,0 +1,22 @@
+<div id="chart">
+  <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
+<br><br>
+
+<ul class="list-unstyled" id="vote-options">
+    <li class="" *ngFor="let option of options">
+      <p class="polls-list row">
+        <span class="col-xs-6"> {{option[0]}} - {{option[1]}} votes </span>
+        <span class="col-xs-6 text-right"> <button class="btn" (click)="this.vote(option)">Vote</button></span>
+      </p>
+    </li>
+</ul>
+
+
+

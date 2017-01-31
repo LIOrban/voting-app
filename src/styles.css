@@ -1,0 +1,50 @@
+/*#title {
+    color: #fff;
+    background-color:#0275d8;
+    padding: 15px;
+}
+.danger {
+    color: #d9534f;
+}
+
+
+#options-list {
+    max-width: 600px;
+}
+
+#create-poll {
+    max-width: 600px;    
+}
+
+#create-poll-form {
+    background-color: #F0F8FF;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#all-polls {
+    padding: 5px;
+}
+
+li {
+    line-height: 38px;
+}
+*/
+
+.float-right {
+    float: right;
+}
+
+.polls-list:hover {
+    cursor:pointer;
+    color: #2196f3;
+}
+
+#chart {
+    display: block;
+    max-width: 360px;
+}
+
+#navbar {
+    background-color: #888890;
+}
